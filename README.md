@@ -2,8 +2,6 @@
 
 Trò chơi học tập cho học sinh **lớp 1, 2, 3**, gồm hơn 100 trò ở 3 mức độ (🌱 Dễ, 🌿 Vừa, 🌳 Khó). Đây là trang web tĩnh, chạy được trên Safari của iPhone, không cần cài đặt, đăng nhập hay máy chủ riêng.
 
-**Chơi ngay:** https://drlekimlong-svg.github.io/do-vui-cung-be/
-
 ## Có gì trong trò chơi
 
 Mỗi lớp có thực đơn riêng, chia theo môn. Mỗi lớp cũng có số ⭐ và bộ hình dán riêng, nên anh chị em dùng chung một máy vẫn không lẫn kết quả.
@@ -45,6 +43,14 @@ manifest.webmanifest   thông tin để "Thêm vào Màn hình chính"
 *.png                  biểu tượng
 .nojekyll              báo GitHub Pages phục vụ file nguyên trạng
 ```
+
+## Mở trang chơi bằng GitHub Pages
+
+GitHub Pages miễn phí chỉ chạy với repo **công khai**. Khi đó ai có đường link cũng chơi được và xem được mã nguồn. Trong các file không có thông tin cá nhân nào.
+
+1. Vào **Settings → General**, kéo xuống **Danger Zone**, chọn **Change visibility → Make public**.
+2. Vào **Settings → Pages**. Ở *Build and deployment* chọn **Deploy from a branch**, **Branch: main**, thư mục **/ (root)**, rồi bấm **Save**.
+3. Khoảng 1–2 phút sau, trang chơi sẽ có ở địa chỉ `https://<tên-tài-khoản>.github.io/do-vui-cung-be/`.
 
 ## Chơi trên iPhone
 
