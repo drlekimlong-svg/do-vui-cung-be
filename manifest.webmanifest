@@ -1,0 +1,17 @@
+{
+  "name": "Đố Vui Cùng Bé",
+  "short_name": "Đố vui",
+  "description": "Trò chơi học tập cho học sinh lớp 1, 2, 3: Tiếng Việt, Toán, Khám phá, Đạo đức, Tiếng Anh và đố vui.",
+  "lang": "vi",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FFF4DC",
+  "theme_color": "#FFF4DC",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

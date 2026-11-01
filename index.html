@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Đố vui">
+<meta name="theme-color" content="#FFF4DC">
+<meta name="color-scheme" content="light">
+<meta name="format-detection" content="telephone=no">
+<title>Đố Vui Cùng Bé</title>
+<meta name="description" content="Trò chơi học tập cho học sinh lớp 1, 2, 3: Tiếng Việt, Toán, Tự nhiên và Xã hội, Đạo đức, Tiếng Anh, Tin học và đố vui.">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Andika:wght@400;700&family=Baloo+2:wght@600;800&display=swap">
+<link rel="stylesheet" href="style.css?v=2">
+</head>
+<body data-grade="1">
+<div class="app">
+
+  <section id="home" class="screen active">
+    <header class="hero">
+      <div class="hero-emoji" id="heroEmoji" aria-hidden="true">🦉</div>
+      <div class="hero-text">
+        <h1>Đố Vui Cùng Bé</h1>
+        <p class="hero-sub" id="heroSub"></p>
+      </div>
+      <button type="button" class="total" id="btnStickers" aria-label="Xem bộ sưu tập hình dán">
+        <b id="totalStars">0</b> ⭐
+      </button>
+    </header>
+
+    <nav class="grades" id="gradeTabs" aria-label="Chọn lớp">
+      <button type="button" data-grade="1"><b>Lớp 1</b><span>6 tuổi</span></button>
+      <button type="button" data-grade="2"><b>Lớp 2</b><span>7 tuổi</span></button>
+      <button type="button" data-grade="3"><b>Lớp 3</b><span>8 tuổi</span></button>
+    </nav>
+
+    <div class="panel">
+      <div class="level-title">Chọn mức độ</div>
+      <div class="seg">
+        <button type="button" data-lv="1">🌱 Dễ</button>
+        <button type="button" data-lv="2">🌿 Vừa</button>
+        <button type="button" data-lv="3">🌳 Khó</button>
+      </div>
+      <div class="lv-desc" id="lvDesc"></div>
+      <div class="switches">
+        <button type="button" class="switch" id="btnVoice" role="switch" aria-checked="false">
+          <span class="sw-track"><span class="sw-knob"></span></span>
+          <span class="sw-text"><b id="voiceTitle">Nghe hướng dẫn: Tắt</b><small id="voiceNote"></small></span>
+        </button>
+        <button type="button" class="switch" id="btnSoundHome" role="switch" aria-checked="true">
+          <span class="sw-track"><span class="sw-knob"></span></span>
+          <span class="sw-text"><b id="soundTitle">Âm thanh trò chơi: Bật</b><small>Tiếng chuông khi chọn đúng, chọn sai</small></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="chips" id="subjectChips" role="tablist" aria-label="Chọn môn"></div>
+    <div class="games" id="gameList"></div>
+
+    <div class="home-actions">
+      <button type="button" class="game wide" data-game="mix"><span class="g-emo">🎉</span><span class="g-title">Thử thách tổng hợp</span></button>
+      <button type="button" class="game wide alt" id="btnStickers2"><span class="g-emo">🎁</span><span class="g-title">Bộ sưu tập hình dán</span></button>
+    </div>
+    <p class="tip" id="homeTip"></p>
+  </section>
+
+  <section id="play" class="screen">
+    <div class="topbar">
+      <button type="button" class="icon-btn" id="btnHome" aria-label="Về trang chủ">🏠</button>
+      <div class="progress" id="progress"></div>
+      <button type="button" class="icon-btn" id="btnSound" aria-label="Bật tắt âm thanh">🎵</button>
+      <div class="stars-pill">⭐ <span id="roundStars">0</span></div>
+    </div>
+    <div class="qcard" id="qcard">
+      <div class="qtype" id="qType"></div>
+      <div class="qtext" id="qText"></div>
+      <div class="qhint" id="qHint"></div>
+      <button type="button" class="speak" id="btnSpeak" hidden>🔊 Nghe lại hướng dẫn</button>
+      <div class="stage" id="stage"></div>
+    </div>
+    <div class="options" id="options"></div>
+  </section>
+
+  <section id="done" class="screen">
+    <div class="done-card">
+      <div class="trophy" id="doneTrophy">🏆</div>
+      <h2 id="doneTitle">Giỏi quá!</h2>
+      <div class="done-stars" id="doneStars"></div>
+      <p class="done-msg" id="doneMsg"></p>
+      <div class="new-sticker" id="doneSticker" hidden></div>
+      <button type="button" class="big-btn up" id="btnUp" hidden>⬆️ Thử mức khó hơn</button>
+      <button type="button" class="big-btn" id="btnAgain">🔄 Chơi lại</button>
+      <button type="button" class="big-btn alt" id="btnBack">🏠 Chọn trò khác</button>
+    </div>
+  </section>
+
+  <section id="stickers" class="screen">
+    <div class="topbar">
+      <button type="button" class="icon-btn" id="btnStickerHome" aria-label="Về trang chủ">🏠</button>
+      <h2 class="screen-title">🎁 Bộ sưu tập</h2>
+    </div>
+    <div class="panel sticker-head">
+      <div id="stickerStat"></div>
+      <div class="meter"><i id="stickerBar"></i></div>
+      <small id="stickerNext"></small>
+    </div>
+    <div class="sticker-grid" id="stickerGrid"></div>
+  </section>
+
+</div>
+
+<div class="sheet" id="sheet" role="status">
+  <div class="sheet-emo" id="sheetEmo"></div>
+  <div class="sheet-name" id="sheetName"></div>
+  <div class="sheet-title" id="sheetTitle"></div>
+  <div class="sheet-why" id="sheetWhy"></div>
+  <button type="button" class="big-btn" id="btnNext">Câu tiếp theo ➜</button>
+</div>
+<div class="modal" id="confirmBox" hidden>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="confirmText">
+    <div class="modal-emo">🏠</div>
+    <p id="confirmText">Về trang chủ nhé? Lượt chơi này sẽ dừng lại.</p>
+    <button type="button" class="big-btn" id="btnStay">Chơi tiếp</button>
+    <button type="button" class="big-btn alt" id="btnLeave">Về trang chủ</button>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+<div id="fx"></div>
+
+<script src="data/lop1-tieng-viet.js?v=2"></script>
+<script src="data/lop1-kham-pha.js?v=2"></script>
+<script src="data/lop2-tieng-viet.js?v=2"></script>
+<script src="data/lop2-kham-pha.js?v=2"></script>
+<script src="data/lop3-tieng-viet.js?v=2"></script>
+<script src="data/lop3-kham-pha.js?v=2"></script>
+<script src="data/chung.js?v=2"></script>
+<script src="js/loi.js?v=2"></script>
+<script src="js/co-che.js?v=2"></script>
+<script src="js/tro-choi.js?v=2"></script>
+<script src="js/toan.js?v=2"></script>
+<script src="js/toan-lop2.js?v=2"></script>
+<script src="js/toan-lop3.js?v=2"></script>
+<script src="js/menu.js?v=2"></script>
+</body>
+</html>
